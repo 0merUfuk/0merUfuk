@@ -4,6 +4,8 @@
 
 <br><br>
 
-<a href="https://www.linkedin.com/in/%C3%B6mer-ufuk-boz">LinkedIn</a>
+<a href="https://www.linkedin.com/in/%C3%B6mer-ufuk-boz">
+  <img src="./linkedin-terminal.svg" width="360" alt="Open LinkedIn" />
+</a>
 
 </div>
