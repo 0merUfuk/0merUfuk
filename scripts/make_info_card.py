@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Generate the neofetch-style info card SVG.
+"""Generate the neofetch-style info card SVG using SMIL animations.
 
 Hand-authors a small SVG that looks like neofetch output: a title bar,
-then colored key/value rows. Each line fades and slides in on a short stagger.
+then colored key/value rows. Each line fades in via SMIL <animate> (no <style>
+tag — GitHub strips it).
 """
 
 import os
@@ -10,21 +11,16 @@ import os
 OUTPUT = os.path.join(os.path.dirname(__file__), "..", "info-card.svg")
 
 WIDTH = 490
-HEIGHT = 280
+HEIGHT = 170
 PADDING = 16
 LINE_HEIGHT = 22
 TITLE_BAR_HEIGHT = 28
 
-# Content — adapt these to your details
+# Content — clean and lean
 ROWS = [
-    ("Now", "AI/ML Engineer @ FDE"),
-    ("Prev", "MLOps @ TRYPIX · Backend @ Banü Dijital"),
-    ("Stack", "Go · Python · TypeScript · Flutter"),
-    ("Infra", "PostgreSQL · Redis · RabbitMQ · Docker · Railway"),
-    ("School", "BANÜ Software Engineering (2023–27)"),
+    ("Now", "Forward Deployed Engineer"),
+    ("Stack", "Go · Python · TypeScript"),
     ("Loc", "İstanbul, Türkiye"),
-    ("Focus", "Hermes automations · Local-first LLM tooling"),
-    ("Open", "MIT-licensed · Self-hosted core preferred"),
 ]
 
 # Colors (neofetch-like)
@@ -40,7 +36,7 @@ COLORS = {
 
 
 def render_svg() -> str:
-    parts = []
+    parts: list[str] = []
     parts.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="{WIDTH}" height="{HEIGHT}" viewBox="0 0 {WIDTH} {HEIGHT}">')
     parts.append(f'<rect width="{WIDTH}" height="{HEIGHT}" fill="{COLORS["bg"]}" rx="8"/>')
     parts.append(f'<rect width="{WIDTH}" height="{HEIGHT}" fill="none" stroke="{COLORS["border"]}" rx="8" stroke-width="1"/>')
@@ -64,36 +60,22 @@ def render_svg() -> str:
         f'text-anchor="middle">{title_text}</text>'
     )
 
-    # CSS for line fade-in animation
-    parts.append("""<style>
-    g.row { opacity: 0; animation: fadeIn 0.5s ease-out forwards; }
-    @keyframes fadeIn {
-      0%   { opacity: 0; transform: translateX(-12px); }
-      100% { opacity: 1; transform: translateX(0); }
-    }
-    """)
-    for i in range(len(ROWS)):
-        parts.append(f"g.row-{i} {{ animation-delay: {0.3 + i * 0.15:.2f}s; }}")
-    parts.append("</style>")
-
-    # Rows
+    # Rows with SMIL fade-in (no <style> tag — GitHub strips it)
     y_start = TITLE_BAR_HEIGHT + PADDING + 10
     for i, (key, value) in enumerate(ROWS):
         y = y_start + i * LINE_HEIGHT
         x = PADDING + 10
-
-        # Key
+        delay = 0.3 + i * 0.15
         key_text = f"{key}:"
+        key_width = len(key_text) * 7.2 + 10
+
+        # Wrap row in a <g> with SMIL opacity animation
         parts.append(
-            f'<g class="row row-{i}">'
+            f'<g opacity="0">'
+            f'<animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="{delay:.2f}s" fill="freeze"/>'
             f'<text x="{x}" y="{y}" fill="{COLORS["key"]}" font-size="13" '
             f'font-family="-apple-system, BlinkMacSystemFont, monospace" '
             f'font-weight="bold">{key_text}</text>'
-        )
-
-        # Value
-        key_width = len(key_text) * 7.2 + 10
-        parts.append(
             f'<text x="{x + key_width}" y="{y}" fill="{COLORS["value"]}" font-size="13" '
             f'font-family="-apple-system, BlinkMacSystemFont, monospace">{value}</text>'
             f'</g>'
