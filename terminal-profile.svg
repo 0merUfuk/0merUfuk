@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="680" viewBox="0 0 980 680">
+  <rect width="980" height="680" rx="18" fill="#0d1117"/>
+  <rect x="1" y="1" width="978" height="678" rx="18" fill="none" stroke="#30363d" stroke-width="2"/>
+
+  <rect x="0" y="0" width="980" height="46" rx="18" fill="#161b22"/>
+  <rect x="0" y="28" width="980" height="18" fill="#161b22"/>
+  <circle cx="26" cy="23" r="7" fill="#ff5f56"/>
+  <circle cx="50" cy="23" r="7" fill="#ffbd2e"/>
+  <circle cx="74" cy="23" r="7" fill="#27c93f"/>
+  <text x="490" y="29" text-anchor="middle" fill="#8b949e" font-family="SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace" font-size="14">ufuk@github:~</text>
+
+  <g font-family="SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace" font-size="18">
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="0.10s" fill="freeze"/>
+      <text x="42" y="82" fill="#39d353">ufuk@github</text>
+      <text x="162" y="82" fill="#8b949e">:</text>
+      <text x="172" y="82" fill="#58a6ff">~</text>
+      <text x="194" y="82" fill="#c9d1d9">$ whoami</text>
+    </g>
+
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="0.35s" fill="freeze"/>
+      <text x="42" y="126" fill="#f0f6fc" font-size="36" font-weight="700">Ömer Ufuk Boz</text>
+      <text x="42" y="160" fill="#c9d1d9" font-size="20">Forward Deployed AI/ML Engineering</text>
+      <text x="42" y="188" fill="#8b949e" font-size="16">Istanbul, Türkiye</text>
+    </g>
+
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="0.65s" fill="freeze"/>
+      <text x="42" y="236" fill="#39d353">ufuk@github</text>
+      <text x="162" y="236" fill="#8b949e">:</text>
+      <text x="172" y="236" fill="#58a6ff">~</text>
+      <text x="194" y="236" fill="#c9d1d9">$ cat profile.md</text>
+    </g>
+
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="0.90s" fill="freeze"/>
+      <text x="42" y="280" fill="#f0f6fc">Build AI systems, backend infrastructure, and platform architecture</text>
+      <text x="42" y="310" fill="#f0f6fc">around real production constraints.</text>
+      <text x="42" y="352" fill="#c9d1d9">4th-year Software Engineering student working in forward-deployed AI/ML engineering.</text>
+      <text x="42" y="382" fill="#c9d1d9">Own architecture decisions and ship production systems end-to-end:</text>
+      <text x="64" y="424" fill="#8b949e">▸ agentic tooling for real workflows</text>
+      <text x="64" y="456" fill="#8b949e">▸ microservice architecture and backend platforms</text>
+      <text x="64" y="488" fill="#8b949e">▸ retrieval and serving infrastructure</text>
+      <text x="64" y="520" fill="#8b949e">▸ inference orchestration for production AI systems</text>
+    </g>
+
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.25s" begin="1.25s" fill="freeze"/>
+      <text x="42" y="574" fill="#39d353">ufuk@github</text>
+      <text x="162" y="574" fill="#8b949e">:</text>
+      <text x="172" y="574" fill="#58a6ff">~</text>
+      <text x="194" y="574" fill="#c9d1d9">$ principles</text>
+      <text x="42" y="614" fill="#8b949e">production constraints &gt; demos · architecture ownership · observable failure modes</text>
+      <rect x="42" y="642" width="10" height="20" fill="#39d353">
+        <animate attributeName="opacity" values="1;0;1" dur="1.1s" begin="1.5s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+</svg>
